@@ -9,8 +9,8 @@ public class Algorithms {
         f = new File("words.txt");
         System.out.println("Two letter words: " + twoLetters());
         System.out.println("Amount of words tied for longest: " + longest());
-        int palindromes = 0;
         s = new Scanner(f);
+        int palindromes = 0;
         while(s.hasNext()) {
             if(palindromes(s.next())) {
                 palindromes++;
@@ -52,16 +52,12 @@ public class Algorithms {
         return amount;
     }
 
-    public static boolean palindromes(String str) throws FileNotFoundException {
-        boolean palindrome = false;
-        for(int i = 0; i < (str.length() / 2); i++){
-            if(str.charAt(i) == str.charAt(str.length() - i - 1)) {
-                palindrome = true;
-            }
-            else {
-                palindrome = false;
+    public static boolean palindromes(String str) {
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
+                return false;
             }
         }
-        return palindrome;
-    }
+        return true;
+    }    
 }
